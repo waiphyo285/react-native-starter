@@ -5,14 +5,19 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
+  FlatList,
+  Image,
   SafeAreaView,
   ScrollView,
+  SectionList,
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   useColorScheme,
   View,
 } from 'react-native';
@@ -55,46 +60,89 @@ function Section({children, title}: SectionProps): React.JSX.Element {
   );
 }
 
-function App(): React.JSX.Element {
+const App = (): React.JSX.Element => {
+  const [text, setText] = useState('');
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+    <ScrollView>
+      <View style={{padding: 10}}>
+        <Image
+          source={{
+            uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
+          }}
+          style={{width: 200, height: 200}}
+        />
+        <TextInput
+          style={{height: 40, padding: 5}}
+          placeholder="Type here to translate!"
+          onChangeText={newText => setText(newText)}
+          defaultValue={text}
+        />
+        <Text style={{padding: 10, fontSize: 42}}>
+          {text
+            .split(' ')
+            .map(word => word && '🍕')
+            .join(' ')}
+        </Text>
+      </View>
+      <FlatList
+        data={[
+          {key: 'Devin'},
+          {key: 'Dan'},
+          {key: 'Dominic'},
+          {key: 'Jackson'},
+          {key: 'James'},
+          {key: 'Joel'},
+          {key: 'John'},
+          {key: 'Jillian'},
+          {key: 'Jimmy'},
+          {key: 'Julie'},
+        ]}
+        renderItem={({item}) => <Text style={{
+          padding: 10,
+          fontSize: 18,
+          height: 44,
+        }}>{item.key}</Text>}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+
+<SectionList
+        sections={[
+          {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
+          {
+            title: 'J',
+            data: [
+              'Jackson',
+              'James',
+              'Jillian',
+              'Jimmy',
+              'Joel',
+              'John',
+              'Julie',
+            ],
+          },
+        ]}
+        renderItem={({item}) => <Text style={{
+          padding: 10,
+          fontSize: 18,
+          height: 44,
+        }}>{item}</Text>}
+        renderSectionHeader={({section}) => (
+          <Text style={{
+            paddingTop: 2,
+            paddingLeft: 10,
+            paddingRight: 10,
+            paddingBottom: 2,
+            fontSize: 14,
+            fontWeight: 'bold',
+            backgroundColor: 'rgba(247,247,247,1.0)',
+          }}>{section.title}</Text>
+        )}
+        keyExtractor={item => `basicListEntry-${item}`}
+      />
+    </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   sectionContainer: {
