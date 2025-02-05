@@ -11,15 +11,15 @@ import TextInputScreen from './src/screens/Examples/TextInputScreen';
 import PizzaTextScreen from './src/screens/Examples/PizzaTextScreen';
 import ImageScreen from './src/screens/Examples/ImageScreen';
 
-import FlexRow from './src/screens/Examples/LayoutScreens/FlexRow';
-import FlexColumn from './src/screens/Examples/LayoutScreens/FlexColumn';
-import FlexDirection from './src/screens/Examples/LayoutScreens/FlexDirection';
-import JustifyContent from './src/screens/Examples/LayoutScreens/JustifyContent';
-import AlignItems from './src/screens/Examples/LayoutScreens/AlignItems';
-import AlignSelf from './src/screens/Examples/LayoutScreens/AlignSelf';
-import AlignContent from './src/screens/Examples/LayoutScreens/AlignContent';
-import FlexWrap from './src/screens/Examples/LayoutScreens/FlexWrap';
-import Position from './src/screens/Examples/LayoutScreens/Position';
+import FlexRow from './src/screens/Examples/FlexRowScreen';
+import FlexColumn from './src/screens/Examples/FlexColumnScreen';
+import FlexDirection from './src/screens/Examples/FlexDirectionScreen';
+import JustifyContent from './src/screens/Examples/JustifyContentScreen';
+import AlignItems from './src/screens/Examples/AlignItemsScreen';
+import AlignSelf from './src/screens/Examples/AlignSelfScreen';
+import AlignContent from './src/screens/Examples/AlignContentScreen';
+import FlexWrap from './src/screens/Examples/FlexWrapScreen';
+import Position from './src/screens/Examples/PositionScreen';
 
 
 const Stack = createStackNavigator();
