@@ -3,22 +3,23 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './src/screens/HomeScreen';
-import FlatListScreen from './src/screens/FlatListScreen';
-import SectionListScreen from './src/screens/SectionListScreen';
-import TextInputScreen from './src/screens/TextInputScreen';
-import PizzaTextScreen from './src/screens/PizzaTextScreen';
-import ImageScreen from './src/screens/ImageScreen';
-
 import LayoutScreen from './src/screens/LayoutScreen';
-import FlexRow from './src/Layouts/FlexRow';
-import FlexColumn from './src/Layouts/FlexColumn';
-import FlexDirection from './src/Layouts/FlexDirection';
-import JustifyContent from './src/Layouts/JustifyContent';
-import AlignItems from './src/Layouts/AlignItems';
-import AlignSelf from './src/Layouts/AlignSelf';
-import AlignContent from './src/Layouts/AlignContent';
-import FlexWrap from './src/Layouts/FlexWrap';
-import Position from './src/Layouts/Position';
+
+import FlatListScreen from './src/screens/Examples/FlatListScreen';
+import SectionListScreen from './src/screens/Examples/SectionListScreen';
+import TextInputScreen from './src/screens/Examples/TextInputScreen';
+import PizzaTextScreen from './src/screens/Examples/PizzaTextScreen';
+import ImageScreen from './src/screens/Examples/ImageScreen';
+
+import FlexRow from './src/screens/Examples/LayoutScreens/FlexRow';
+import FlexColumn from './src/screens/Examples/LayoutScreens/FlexColumn';
+import FlexDirection from './src/screens/Examples/LayoutScreens/FlexDirection';
+import JustifyContent from './src/screens/Examples/LayoutScreens/JustifyContent';
+import AlignItems from './src/screens/Examples/LayoutScreens/AlignItems';
+import AlignSelf from './src/screens/Examples/LayoutScreens/AlignSelf';
+import AlignContent from './src/screens/Examples/LayoutScreens/AlignContent';
+import FlexWrap from './src/screens/Examples/LayoutScreens/FlexWrap';
+import Position from './src/screens/Examples/LayoutScreens/Position';
 
 
 const Stack = createStackNavigator();
@@ -28,14 +29,14 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Layout" component={LayoutScreen} />
+
         <Stack.Screen name="FlatList" component={FlatListScreen} />
         <Stack.Screen name="SectionList" component={SectionListScreen} />
         <Stack.Screen name="TextInput" component={TextInputScreen} />
         <Stack.Screen name="Image" component={ImageScreen} />
         <Stack.Screen name="PizzaText" component={PizzaTextScreen} />
 
-
-        <Stack.Screen name="Layout" component={LayoutScreen} />
         <Stack.Screen name='FlexRow' component={FlexRow}/>
         <Stack.Screen name='FlexColumn' component={FlexColumn}/>
         <Stack.Screen name='FlexDirection' component={FlexDirection}/>
