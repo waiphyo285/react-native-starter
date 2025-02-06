@@ -1,7 +1,11 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {Button} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
+import useUserStore from './src/store/userStore';
+
+import LoginScreen from './src/screens/Auth/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import LayoutScreen from './src/screens/LayoutScreen';
 
@@ -21,31 +25,46 @@ import AlignContent from './src/screens/Examples/AlignContentScreen';
 import FlexWrap from './src/screens/Examples/FlexWrapScreen';
 import Position from './src/screens/Examples/PositionScreen';
 
-
 const Stack = createStackNavigator();
 
 const App = () => {
+  const isLoggedIn = useUserStore(state => state.isLoggedIn);
+  const logoutUser = useUserStore(state => state.logoutUser);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Layout" component={LayoutScreen} />
-
-        <Stack.Screen name="FlatList" component={FlatListScreen} />
-        <Stack.Screen name="SectionList" component={SectionListScreen} />
-        <Stack.Screen name="TextInput" component={TextInputScreen} />
-        <Stack.Screen name="Image" component={ImageScreen} />
-        <Stack.Screen name="PizzaText" component={PizzaTextScreen} />
-
-        <Stack.Screen name='FlexRow' component={FlexRow}/>
-        <Stack.Screen name='FlexColumn' component={FlexColumn}/>
-        <Stack.Screen name='FlexDirection' component={FlexDirection}/>
-        <Stack.Screen name='JustifyContent' component={JustifyContent}/>
-        <Stack.Screen name='AlignItems' component={AlignItems}/>
-        <Stack.Screen name='AlignSelf' component={AlignSelf}/>
-        <Stack.Screen name='AlignContent' component={AlignContent}/>
-        <Stack.Screen name='FlexWrap' component={FlexWrap}/>
-        <Stack.Screen name='Position' component={Position}/>
+        {!isLoggedIn ? (
+          <Stack.Screen name="Login" component={LoginScreen} />
+        ) : (
+          <>
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{
+                title: 'Home',
+                headerRight: () => (
+                  <Button title="Logout" onPress={() => logoutUser()} color="red" />
+                ),
+              }}
+            />
+            <Stack.Screen name="Layout" component={LayoutScreen} />
+            <Stack.Screen name="FlatList" component={FlatListScreen} />
+            <Stack.Screen name="SectionList" component={SectionListScreen} />
+            <Stack.Screen name="TextInput" component={TextInputScreen} />
+            <Stack.Screen name="Image" component={ImageScreen} />
+            <Stack.Screen name="PizzaText" component={PizzaTextScreen} />
+            <Stack.Screen name="FlexRow" component={FlexRow} />
+            <Stack.Screen name="FlexColumn" component={FlexColumn} />
+            <Stack.Screen name="FlexDirection" component={FlexDirection} />
+            <Stack.Screen name="JustifyContent" component={JustifyContent} />
+            <Stack.Screen name="AlignItems" component={AlignItems} />
+            <Stack.Screen name="AlignSelf" component={AlignSelf} />
+            <Stack.Screen name="AlignContent" component={AlignContent} />
+            <Stack.Screen name="FlexWrap" component={FlexWrap} />
+            <Stack.Screen name="Position" component={Position} />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
