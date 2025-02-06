@@ -13,7 +13,10 @@ const PizzaTextScreen = () => {
         value={text}
       />
       <Text style={{ padding: 10, fontSize: 42 }}>
-        {text.split(' ').map(word => (word ? '🍕' : '')).join(' ')}
+        {text
+          .split(' ')
+          .map(word => (word ? '🍕' : ''))
+          .join(' ')}
       </Text>
     </View>
   );

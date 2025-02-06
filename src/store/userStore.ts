@@ -1,4 +1,4 @@
-import {create} from 'zustand';
+import { create } from 'zustand';
 
 interface User {
   email: string;
@@ -8,7 +8,7 @@ interface User {
 interface UserStore {
   user: User | null;
   initialValues: User;
-  isLoggedIn:boolean;
+  isLoggedIn: boolean;
   loginUser: (user: User) => void;
   logoutUser: () => void;
 }
@@ -24,8 +24,8 @@ const useUserStore = create<UserStore>(set => ({
     set({
       user,
       isLoggedIn: true,
-      initialValues: {email: user.email, password: ''},
-    }); 
+      initialValues: { email: user.email, password: '' },
+    });
   },
   logoutUser: () => {
     set({
@@ -35,7 +35,7 @@ const useUserStore = create<UserStore>(set => ({
         email: 'hello@gmail.com',
         password: '123456',
       },
-    }); 
+    });
   },
 }));
 

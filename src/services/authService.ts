@@ -9,7 +9,7 @@ interface LoginData {
 const authService = {
   login: async (data: LoginData) => {
     const response = await userService.login(data);
-    useUserStore.getState().loginUser(response.data); 
+    useUserStore.getState().loginUser(response.data);
   },
 };
 

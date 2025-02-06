@@ -1,44 +1,87 @@
 import React from 'react';
-import {View, Button} from 'react-native';
+import { View, Button, StyleSheet, ScrollView } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const HomeScreen = ({navigation}: any) => {
+// Create the Bottom Tab Navigator
+const Tab = createBottomTabNavigator();
+
+// Create a component for the General tab content
+const GeneralTab = ({ navigation }: any) => {
   return (
-    <View
-      style={{
-        padding: 20,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-      }}>
-      <View style={{width: '48%', marginBottom: 10}}>
-        <Button
-          title="Layout"
-          onPress={() => navigation.navigate('Layout')}
-        />
-      </View>
-      <View style={{width: '48%', marginBottom: 10}}>
+    <ScrollView>
+      <View style={styles.buttonContainer}>
         <Button
           title="FlatList"
           onPress={() => navigation.navigate('FlatList')}
         />
       </View>
-      <View style={{width: '48%', marginBottom: 10}}>
+      <View style={styles.buttonContainer}>
         <Button
           title="SectionList"
           onPress={() => navigation.navigate('SectionList')}
         />
       </View>
-      <View style={{width: '48%', marginBottom: 10}}>
+      <View style={styles.buttonContainer}>
         <Button
           title="TextInput"
           onPress={() => navigation.navigate('TextInput')}
         />
       </View>
-      <View style={{width: '48%', marginBottom: 10}}>
+      <View style={styles.buttonContainer}>
         <Button title="Image" onPress={() => navigation.navigate('Image')} />
       </View>
-    </View>
+    </ScrollView>
   );
 };
+
+// Create a component for the Layout tab content
+const LayoutTab = ({ navigation }: any) => {
+  return (
+    <ScrollView>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="Layout Examples"
+          onPress={() => navigation.navigate('Layout')}
+        />
+      </View>
+    </ScrollView>
+  );
+};
+
+// Main HomeScreen component
+const HomeScreen = ({ navigation }: any) => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="GeneralTab"
+        component={GeneralTab}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="home-heart" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="LayoutTab"
+        component={LayoutTab}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="view-grid" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    marginTop: 8,
+    marginHorizontal: 8,
+  },
+});
 
 export default HomeScreen;

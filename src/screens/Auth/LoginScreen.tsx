@@ -8,16 +8,16 @@ import useUserStore from '../../store/userStore';
 
 const LoginScreen = () => {
   const error = useErrorStore(state => state.error);
-  const initialValues = useUserStore(state => state.initialValues)
+  const initialValues = useUserStore(state => state.initialValues);
 
   return (
     <View style={{ padding: 20 }}>
       {error && <Text style={{ color: 'red' }}>{error}</Text>}
 
       <Formik
-        initialValues={initialValues} 
+        initialValues={initialValues}
         validationSchema={userValidationSchema}
-        onSubmit={async (values) => await authService.login(values)}>
+        onSubmit={async values => await authService.login(values)}>
         {({
           handleChange,
           handleBlur,
@@ -58,7 +58,7 @@ const LoginScreen = () => {
               <Text>{errors.password}</Text>
             )}
 
-            <Button onPress={()=>handleSubmit()} title="Login" />
+            <Button onPress={() => handleSubmit()} title="Login" />
           </>
         )}
       </Formik>

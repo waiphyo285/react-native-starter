@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 const FlexRow = () => {
   return (
@@ -10,9 +10,9 @@ const FlexRow = () => {
           flexDirection: 'row',
         },
       ]}>
-      <View style={{flex: 1, backgroundColor: 'lightgreen'}} />
-      <View style={{flex: 2, backgroundColor: 'green'}} />
-      <View style={{flex: 3, backgroundColor: 'darkgreen'}} />
+      <View style={{ flex: 1, backgroundColor: 'lightgreen' }} />
+      <View style={{ flex: 2, backgroundColor: 'green' }} />
+      <View style={{ flex: 3, backgroundColor: 'darkgreen' }} />
     </View>
   );
 };

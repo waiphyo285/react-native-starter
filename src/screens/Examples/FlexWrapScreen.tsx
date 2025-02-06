@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import type {PropsWithChildren} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, { useState } from 'react';
+import type { PropsWithChildren } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const FlexWrap = () => {
-    const [flexWrap, setFlexWrap] = useState('wrap');
+  const [flexWrap, setFlexWrap] = useState('wrap');
 
   return (
     <PreviewLayout
@@ -11,21 +11,21 @@ const FlexWrap = () => {
       values={['wrap', 'nowrap']}
       selectedValue={flexWrap}
       setSelectedValue={setFlexWrap}>
-      <View style={[styles.box, {backgroundColor: 'lightgreen'}]} />
-      <View style={[styles.box, {backgroundColor: 'green'}]} />
-      <View style={[styles.box, {backgroundColor: 'darkgreen'}]} />
-      <View style={[styles.box, {backgroundColor: 'lightblue'}]} />
-      <View style={[styles.box, {backgroundColor: 'blue'}]} />
-      <View style={[styles.box, {backgroundColor: 'darkblue'}]} />
-      <View style={[styles.box, {backgroundColor: 'navyblue'}]} />
+      <View style={[styles.box, { backgroundColor: 'lightgreen' }]} />
+      <View style={[styles.box, { backgroundColor: 'green' }]} />
+      <View style={[styles.box, { backgroundColor: 'darkgreen' }]} />
+      <View style={[styles.box, { backgroundColor: 'lightblue' }]} />
+      <View style={[styles.box, { backgroundColor: 'blue' }]} />
+      <View style={[styles.box, { backgroundColor: 'darkblue' }]} />
+      <View style={[styles.box, { backgroundColor: 'navyblue' }]} />
 
-      <View style={[styles.box, {backgroundColor: 'lightgreen'}]} />
-      <View style={[styles.box, {backgroundColor: 'green'}]} />
-      <View style={[styles.box, {backgroundColor: 'darkgreen'}]} />
-      <View style={[styles.box, {backgroundColor: 'lightblue'}]} />
-      <View style={[styles.box, {backgroundColor: 'blue'}]} />
-      <View style={[styles.box, {backgroundColor: 'darkblue'}]} />
-      <View style={[styles.box, {backgroundColor: 'navyblue'}]} />
+      <View style={[styles.box, { backgroundColor: 'lightgreen' }]} />
+      <View style={[styles.box, { backgroundColor: 'green' }]} />
+      <View style={[styles.box, { backgroundColor: 'darkgreen' }]} />
+      <View style={[styles.box, { backgroundColor: 'lightblue' }]} />
+      <View style={[styles.box, { backgroundColor: 'blue' }]} />
+      <View style={[styles.box, { backgroundColor: 'darkblue' }]} />
+      <View style={[styles.box, { backgroundColor: 'navyblue' }]} />
     </PreviewLayout>
   );
 };
@@ -44,7 +44,7 @@ const PreviewLayout = ({
   selectedValue,
   setSelectedValue,
 }: PreviewLayoutProps) => (
-  <View style={{padding: 10, flex: 1}}>
+  <View style={{ padding: 10, flex: 1 }}>
     <Text style={styles.label}>{label}</Text>
     <View style={styles.row}>
       {values.map(value => (
@@ -62,7 +62,9 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
+    <View style={[styles.container, { [label]: selectedValue }]}>
+      {children}
+    </View>
   </View>
 );
 

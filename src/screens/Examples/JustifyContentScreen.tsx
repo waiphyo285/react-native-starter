@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import type {PropsWithChildren} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, { useState } from 'react';
+import type { PropsWithChildren } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const JustifyContent = () => {
   const [justifyContent, setJustifyContent] = useState('flex-start');
@@ -18,9 +18,9 @@ const JustifyContent = () => {
       ]}
       selectedValue={justifyContent}
       setSelectedValue={setJustifyContent}>
-      <View style={[styles.box, {backgroundColor: 'lightgreen'}]} />
-      <View style={[styles.box, {backgroundColor: 'green'}]} />
-      <View style={[styles.box, {backgroundColor: 'darkgreen'}]} />
+      <View style={[styles.box, { backgroundColor: 'lightgreen' }]} />
+      <View style={[styles.box, { backgroundColor: 'green' }]} />
+      <View style={[styles.box, { backgroundColor: 'darkgreen' }]} />
     </PreviewLayout>
   );
 };
@@ -39,7 +39,7 @@ const PreviewLayout = ({
   selectedValue,
   setSelectedValue,
 }: PreviewLayoutProps) => (
-  <View style={{padding: 10, flex: 1}}>
+  <View style={{ padding: 10, flex: 1 }}>
     <Text style={styles.label}>{label}</Text>
     <View style={styles.row}>
       {values.map(value => (
@@ -57,7 +57,9 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
+    <View style={[styles.container, { [label]: selectedValue }]}>
+      {children}
+    </View>
   </View>
 );
 

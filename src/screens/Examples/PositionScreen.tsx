@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
-import type {PropsWithChildren} from 'react';
+import React, { useState } from 'react';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import type { PropsWithChildren } from 'react';
 
 const PositionLayout = () => {
   const [position, setPosition] = useState<'relative' | 'absolute' | 'static'>(
@@ -64,7 +64,7 @@ const PreviewLayout = ({
   selectedValue,
   setSelectedValue,
 }: PreviewLayoutProps) => (
-  <View style={{padding: 10, flex: 1}}>
+  <View style={{ padding: 10, flex: 1 }}>
     <Text style={styles.label}>{label}</Text>
     <View style={styles.row}>
       {values.map(value => (
