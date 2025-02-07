@@ -31,6 +31,30 @@ const GeneralTab = ({ navigation }: any) => {
       <View style={styles.buttonContainer}>
         <Button title="Image" onPress={() => navigation.navigate('Image')} />
       </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="AnimatedOne"
+          onPress={() => navigation.navigate('AnimatedOne')}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="AnimatedTwo"
+          onPress={() => navigation.navigate('AnimatedTwo')}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="AnimatedThree"
+          onPress={() => navigation.navigate('AnimatedThree')}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="AnimatedFour"
+          onPress={() => navigation.navigate('AnimatedFour')}
+        />
+      </View>
     </ScrollView>
   );
 };

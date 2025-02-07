@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import useUserStore from './src/store/userStore';
 
@@ -25,6 +25,11 @@ import AlignContent from './src/screens/Examples/AlignContentScreen';
 import FlexWrap from './src/screens/Examples/FlexWrapScreen';
 import Position from './src/screens/Examples/PositionScreen';
 
+import AnimatedOneScreen from './src/screens/Examples/AnimatedOneScreen';
+import AnimatedTwoScreen from './src/screens/Examples/AnimatedTwoScreen';
+import AnimatedThreeScreen from './src/screens/Examples/AnimatedThreeScreen';
+import AnimatedFourScreen from './src/screens/Examples/AnimatedFourScreen';
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -44,7 +49,11 @@ const App = () => {
               options={{
                 title: 'Home',
                 headerRight: () => (
-                  <Button title="Logout" onPress={() => logoutUser()} color="red" />
+                  <Button
+                    title="Logout"
+                    onPress={() => logoutUser()}
+                    color="red"
+                  />
                 ),
               }}
             />
@@ -54,6 +63,15 @@ const App = () => {
             <Stack.Screen name="TextInput" component={TextInputScreen} />
             <Stack.Screen name="Image" component={ImageScreen} />
             <Stack.Screen name="PizzaText" component={PizzaTextScreen} />
+
+            <Stack.Screen name="AnimatedOne" component={AnimatedOneScreen} />
+            <Stack.Screen name="AnimatedTwo" component={AnimatedTwoScreen} />
+            <Stack.Screen
+              name="AnimatedThree"
+              component={AnimatedThreeScreen}
+            />
+            <Stack.Screen name="AnimatedFour" component={AnimatedFourScreen} />
+
             <Stack.Screen name="FlexRow" component={FlexRow} />
             <Stack.Screen name="FlexColumn" component={FlexColumn} />
             <Stack.Screen name="FlexDirection" component={FlexDirection} />
